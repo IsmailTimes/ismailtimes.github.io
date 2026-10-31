@@ -9,13 +9,221 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Md Ismail Hossain · University of Wyoming">
 <meta property="og:description" content="Transportation · Digital twins · GIS · Smart cities">
-<meta property="og:image" content="https://ismailtimes.github.io/images/headshot.jpg">
+<meta property="og:image" content="https://ismailtimes.github.io/headshot.jpg">
 <meta property="og:url" content="https://ismailtimes.github.io/">
-<link rel="icon" href="images/headshot.jpg">
+<link rel="icon" href="headshot.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css">
+<style>
+/* Md Ismail Hossain — personal academic site */
+:root {
+  --bg: #faf8f4;
+  --alt: #f3f0e9;
+  --card: #ffffff;
+  --ink: #14263f;
+  --text: #2a2f37;
+  --muted: #5a616c;
+  --line: #e6e1d7;
+  --navy: #1d3c63;
+  --navy-dark: #142c4a;
+  --gold: #8a6116;
+  --gold-soft: #f4ead6;
+  --sans: 'Inter', -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--navy); text-decoration: none; }
+a:hover { color: var(--navy-dark); text-decoration: underline; }
+img { max-width: 100%; }
+h1, h2, h3, h4, p, ul, dl, dd, figure { margin: 0; }
+
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+.skip { position: absolute; left: -9999px; top: 8px; background: var(--navy); color: #fff; padding: 8px 14px; border-radius: 6px; z-index: 100; }
+.skip:focus { left: 16px; }
+
+/* Top menu */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(250, 248, 244, 0.94);
+  border-bottom: 1px solid var(--line);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+.nav .wrap { max-width: 1240px; }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 68px; position: relative; }
+a.brand { display: flex; flex-direction: column; line-height: 1.2; color: var(--ink); }
+a.brand:hover { text-decoration: none; }
+.brand-name { font-family: var(--serif); font-weight: 700; font-size: 20px; }
+.brand-tag { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-top: 3px; white-space: nowrap; }
+.links { display: flex; align-items: center; gap: 2px; flex-wrap: wrap; justify-content: flex-end; }
+.links a { font-size: 14px; font-weight: 500; color: var(--text); padding: 8px 10px; border-radius: 6px; }
+.links a:hover { background: var(--alt); color: var(--ink); text-decoration: none; }
+.links a.cv { margin-left: 8px; background: var(--navy); color: #fff; font-weight: 600; padding: 8px 16px; border-radius: 999px; }
+.links a.cv:hover { background: var(--navy-dark); color: #fff; }
+.menu-toggle { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
+.menu-btn { display: none; cursor: pointer; width: 44px; height: 44px; border-radius: 8px; flex-direction: column; justify-content: center; align-items: center; gap: 5px; }
+.menu-btn span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; }
+.menu-toggle:focus-visible + .menu-btn { outline: 2px solid var(--navy); outline-offset: 2px; }
+
+/* Hero */
+.hero {
+  padding: 80px 0 64px;
+  border-bottom: 1px solid var(--line);
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(rgba(29, 60, 99, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(29, 60, 99, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+  scroll-margin-top: 72px;
+}
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 56px; align-items: start; }
+.hero-text { min-width: 0; }
+.hero-photo { margin-top: 8px; }
+.hero-photo img { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 24px; border: 5px solid #fff; box-shadow: 0 10px 30px rgba(20, 38, 63, 0.14); }
+.eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin: 0 0 12px; }
+.hero h1 { font-family: var(--serif); font-size: 56px; line-height: 1.08; font-weight: 700; color: var(--ink); letter-spacing: -.015em; margin: 0 0 20px; }
+.affil { border-left: 4px solid var(--gold); padding: 4px 0 4px 16px; margin: -4px 0 24px; }
+.affil-uni { display: block; font-family: var(--serif); font-size: 30px; font-weight: 700; color: var(--navy); line-height: 1.2; }
+.affil-loc { display: block; font-size: 19px; font-weight: 600; color: var(--ink); margin-top: 4px; }
+.affil-dept { display: block; font-size: 15.5px; font-weight: 500; color: var(--muted); margin-top: 2px; }
+.lede { font-size: 19px; line-height: 1.6; max-width: 760px; margin: 0 0 12px; }
+.lede-sub { font-size: 16px; color: var(--muted); max-width: 760px; margin: 0 0 28px; }
+.btns { display: flex; flex-wrap: wrap; gap: 10px; }
+a.btn { display: inline-block; font-size: 14px; font-weight: 600; padding: 10px 18px; border: 1px solid var(--line); border-radius: 999px; background: var(--card); color: var(--ink); }
+a.btn:hover { border-color: var(--navy); color: var(--navy); text-decoration: none; }
+a.btn-solid { background: var(--navy); border-color: var(--navy); color: #fff; }
+a.btn-solid:hover { background: var(--navy-dark); color: #fff; }
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin: 44px 0 0; max-width: 820px; }
+.stats div { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+.stats dt { font-family: var(--serif); font-size: 32px; font-weight: 700; color: var(--navy); line-height: 1.1; }
+.stats dd { margin: 4px 0 0; font-size: 13px; color: var(--muted); }
+
+/* Sections */
+.section { padding: 72px 0; border-bottom: 1px solid var(--line); scroll-margin-top: 72px; }
+.alt { background: var(--alt); }
+.section h2 { font-family: var(--serif); font-size: 36px; line-height: 1.2; font-weight: 700; color: var(--ink); letter-spacing: -.01em; margin: 0 0 28px; }
+.section h3 { font-family: var(--serif); font-size: 19px; line-height: 1.35; font-weight: 600; color: var(--ink); }
+.section p { margin: 0 0 10px; }
+.sub { margin: 36px 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--line); font-size: 21px !important; }
+.note { font-size: 14px; color: var(--muted); margin: -16px 0 0 !important; }
+.section p a, .list a, a.inline-link { color: var(--navy); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a.inline-link:hover { color: var(--gold); }
+a.yt { display: inline-flex; align-items: center; gap: 6px; }
+.yt svg { flex: none; }
+
+.chips { list-style: none; padding: 0; margin: 0 0 32px; display: flex; flex-wrap: wrap; gap: 8px; }
+.chips li { background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 14px; color: var(--ink); }
+
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px 22px 18px; box-shadow: 0 1px 2px rgba(20, 38, 63, 0.04); }
+.card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
+.card p { font-size: 15px; }
+.tag { flex: none; font-size: 12px; font-weight: 600; color: var(--gold); background: var(--gold-soft); border-radius: 999px; padding: 3px 10px; white-space: nowrap; }
+.meta { font-size: 13px !important; color: var(--muted); margin-top: 12px !important; }
+.org { font-size: 15.5px; color: var(--muted); font-style: italic; margin: 2px 0 8px !important; }
+
+/* Publications */
+#publications .sub { font-size: 25px !important; }
+.year { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--gold); margin: 26px 0 10px; }
+.pubs { list-style: none; padding: 0; margin: 0; }
+.pubs li { padding: 16px 20px; margin: 0 0 10px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; font-size: 16.5px; line-height: 1.55; }
+.pub-title { display: block; font-family: var(--serif); font-size: 19.5px; font-weight: 600; color: var(--ink); line-height: 1.4; margin-bottom: 4px; }
+a.pub-title { color: var(--navy); }
+.authors { display: block; }
+.venue { display: block; color: var(--muted); margin-top: 2px; }
+.me { font-weight: 700; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.status { display: inline-block; margin-left: 6px; font-size: 12px; font-weight: 600; color: var(--gold); background: var(--gold-soft); border-radius: 999px; padding: 1px 9px; }
+
+/* Experience */
+.timeline { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--line); }
+.timeline li { position: relative; padding: 0 0 28px 28px; }
+.timeline li::before { content: ''; position: absolute; left: -7px; top: 7px; width: 12px; height: 12px; border-radius: 50%; background: var(--bg); border: 2px solid var(--navy); }
+.timeline li:last-child { padding-bottom: 0; }
+.timeline p { font-size: 15px; max-width: 780px; }
+.row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+.date { font-size: 13px; font-weight: 600; color: var(--muted); white-space: nowrap; }
+
+.list { list-style: none; margin: 0; padding: 0; background: var(--card); border: 1px solid var(--line); border-radius: 14px; }
+.list li { display: flex; justify-content: space-between; gap: 20px; padding: 14px 20px; border-bottom: 1px solid var(--line); font-size: 15px; }
+.list li:last-child { border-bottom: 0; }
+
+.skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.skills div { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+.skills dt { font-family: var(--serif); font-weight: 600; font-size: 17px; color: var(--ink); margin-bottom: 4px; }
+.skills dd { font-size: 14.5px; }
+
+/* Gallery */
+.gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-bottom: 8px; }
+.gallery figure { background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.gallery a { display: block; }
+.gallery img { display: block; width: 100%; height: 320px; object-fit: cover; object-position: center 30%; transition: transform .3s ease; }
+.gallery a:hover img { transform: scale(1.03); }
+.gallery figcaption { padding: 10px 14px 12px; font-size: 13.5px; line-height: 1.45; }
+
+.contact { border-bottom: 0; }
+.contact .lede { font-size: 21px; font-weight: 600; color: var(--ink); }
+.footer { background: var(--ink); color: #c9d2de; padding: 28px 0; font-size: 14px; }
+.footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.footer a { color: #fff; }
+
+/* Tablet */
+@media (max-width: 1100px) {
+  .menu-btn { display: flex; }
+  .links {
+    display: none; position: absolute; top: 68px; left: -24px; right: -24px;
+    flex-direction: column; align-items: stretch; gap: 0;
+    padding: 8px 24px 16px; background: var(--bg);
+    border-bottom: 1px solid var(--line); box-shadow: 0 8px 20px rgba(20, 38, 63, 0.08);
+  }
+  .menu-toggle:checked ~ .links { display: flex; }
+  .links a { padding: 12px 8px; font-size: 16px; border-bottom: 1px solid var(--line); border-radius: 0; }
+  .links a.cv { margin: 12px 0 0; text-align: center; border-radius: 999px; border-bottom: 0; }
+  .hero-grid { grid-template-columns: minmax(0, 1fr) 200px; gap: 36px; }
+  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .cards { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 20px; }
+  .hero-photo { order: -1; width: 140px; margin-top: 0; }
+  .hero-photo img { border-radius: 50%; border-width: 4px; }
+  .gallery { grid-template-columns: 1fr; }
+  .gallery img { height: 360px; }
+}
+@media (max-width: 600px) {
+  .wrap { padding: 0 16px; }
+  .links { left: -16px; right: -16px; padding: 8px 16px 16px; }
+  .hero { padding: 48px 0 40px; }
+  .hero h1 { font-size: 38px; }
+  .affil-uni { font-size: 24px; }
+  .affil-loc { font-size: 16.5px; }
+  .lede { font-size: 17px; }
+  .section { padding: 48px 0; }
+  .section h2 { font-size: 28px; }
+  .pubs li { font-size: 15.5px; padding: 14px 16px; }
+  .pub-title { font-size: 18px; }
+  .skills { grid-template-columns: 1fr; }
+  .list li { flex-direction: column; gap: 2px; }
+  .card-top { flex-direction: column; }
+  .brand-tag { display: none; }
+}
+
+</style>
 </head>
 <body>
 <a class="skip" href="#about">Skip to content</a>
@@ -67,7 +275,7 @@
 				<div><dt>4.00</dt><dd>Graduate GPA</dd></div>
 			</dl>
 		</div>
-		<div class="hero-photo"><img src="images/headshot.jpg" alt="Portrait of Md Ismail Hossain" width="800" height="800"></div>
+		<div class="hero-photo"><img src="headshot.jpg" alt="Portrait of Md Ismail Hossain" width="800" height="800"></div>
 	</div>
 </section>
 
@@ -288,18 +496,18 @@
 
 		<h3 class="sub">Graduate &middot; University of Wyoming</h3>
 		<div class="gallery">
-			<figure><a href="images/full/grad-aag-2026-a.jpg" target="_blank" rel="noopener"><img src="images/gallery/grad-aag-2026-a.jpg" alt="Ismail presenting at the AAG Annual Meeting in San Francisco" loading="lazy" width="1054" height="1400"></a><figcaption>Paper presentation, AAG Annual Meeting 2026, San Francisco</figcaption></figure>
-			<figure><a href="images/full/grad-aag-2026-b.jpg" target="_blank" rel="noopener"><img src="images/gallery/grad-aag-2026-b.jpg" alt="Ismail speaking during his AAG 2026 presentation" loading="lazy" width="1054" height="1400"></a><figcaption>Presenting digital twin readiness research, AAG 2026</figcaption></figure>
-			<figure><a href="images/full/grad-si-symposium-2026.jpg" target="_blank" rel="noopener"><img src="images/gallery/grad-si-symposium-2026.jpg" alt="Ismail with his research poster at the University of Wyoming" loading="lazy" width="1050" height="1400"></a><figcaption>Poster, UW Science Institute Spring Research Symposium 2026</figcaption></figure>
-			<figure><a href="images/full/grad-nairr-ai-unlocked-2026.jpg" target="_blank" rel="noopener"><img src="images/gallery/grad-nairr-ai-unlocked-2026.jpg" alt="Ismail at the NAIRR Pilot AI Unlocked workshop" loading="lazy" width="1050" height="1400"></a><figcaption>NSF-funded AI Unlocked workshop (NAIRR Pilot), Denver 2026</figcaption></figure>
-			<figure><a href="images/full/grad-drone-field.jpg" target="_blank" rel="noopener"><img src="images/gallery/grad-drone-field.jpg" alt="Ismail flying a drone in a field" loading="lazy" width="1050" height="1400"></a><figcaption>Drone field session, Wyoming</figcaption></figure>
+			<figure><a href="full-grad-aag-2026-a.jpg" target="_blank" rel="noopener"><img src="photo-grad-aag-2026-a.jpg" alt="Ismail presenting at the AAG Annual Meeting in San Francisco" loading="lazy" width="1054" height="1400"></a><figcaption>Paper presentation, AAG Annual Meeting 2026, San Francisco</figcaption></figure>
+			<figure><a href="full-grad-aag-2026-b.jpg" target="_blank" rel="noopener"><img src="photo-grad-aag-2026-b.jpg" alt="Ismail speaking during his AAG 2026 presentation" loading="lazy" width="1054" height="1400"></a><figcaption>Presenting digital twin readiness research, AAG 2026</figcaption></figure>
+			<figure><a href="full-grad-si-symposium-2026.jpg" target="_blank" rel="noopener"><img src="photo-grad-si-symposium-2026.jpg" alt="Ismail with his research poster at the University of Wyoming" loading="lazy" width="1050" height="1400"></a><figcaption>Poster, UW Science Institute Spring Research Symposium 2026</figcaption></figure>
+			<figure><a href="full-grad-nairr-ai-unlocked-2026.jpg" target="_blank" rel="noopener"><img src="photo-grad-nairr-ai-unlocked-2026.jpg" alt="Ismail at the NAIRR Pilot AI Unlocked workshop" loading="lazy" width="1050" height="1400"></a><figcaption>NSF-funded AI Unlocked workshop (NAIRR Pilot), Denver 2026</figcaption></figure>
+			<figure><a href="full-grad-drone-field.jpg" target="_blank" rel="noopener"><img src="photo-grad-drone-field.jpg" alt="Ismail flying a drone in a field" loading="lazy" width="1050" height="1400"></a><figcaption>Drone field session, Wyoming</figcaption></figure>
 		</div>
 
 		<h3 class="sub">Undergraduate &middot; JKKNIU, Bangladesh</h3>
 		<div class="gallery">
-			<figure><a href="images/full/ug-nazrul-seminar-2025.jpg" target="_blank" rel="noopener"><img src="images/gallery/ug-nazrul-seminar-2025.jpg" alt="Ismail presenting at the Institute of Nazrul Studies research seminar" loading="lazy" width="1054" height="1400"></a><figcaption>Presenting grant-funded research, Institute of Nazrul Studies Research Project Seminar 2025</figcaption></figure>
-			<figure><a href="images/full/ug-merit-scholarship.jpg" target="_blank" rel="noopener"><img src="images/gallery/ug-merit-scholarship.jpg" alt="Ismail receiving a scholarship from faculty" loading="lazy" width="1400" height="1054"></a><figcaption>Receiving a departmental merit scholarship, JKKNIU</figcaption></figure>
-			<figure><a href="images/full/ug-essay-prize-2021.jpg" target="_blank" rel="noopener"><img src="images/gallery/ug-essay-prize-2021.jpg" alt="Ismail holding a certificate and first-place trophy" loading="lazy" width="1050" height="1400"></a><figcaption>1st place, Tarash Student Association Essay Competition 2021</figcaption></figure>
+			<figure><a href="full-ug-nazrul-seminar-2025.jpg" target="_blank" rel="noopener"><img src="photo-ug-nazrul-seminar-2025.jpg" alt="Ismail presenting at the Institute of Nazrul Studies research seminar" loading="lazy" width="1054" height="1400"></a><figcaption>Presenting grant-funded research, Institute of Nazrul Studies Research Project Seminar 2025</figcaption></figure>
+			<figure><a href="full-ug-merit-scholarship.jpg" target="_blank" rel="noopener"><img src="photo-ug-merit-scholarship.jpg" alt="Ismail receiving a scholarship from faculty" loading="lazy" width="1400" height="1054"></a><figcaption>Receiving a departmental merit scholarship, JKKNIU</figcaption></figure>
+			<figure><a href="full-ug-essay-prize-2021.jpg" target="_blank" rel="noopener"><img src="photo-ug-essay-prize-2021.jpg" alt="Ismail holding a certificate and first-place trophy" loading="lazy" width="1050" height="1400"></a><figcaption>1st place, Tarash Student Association Essay Competition 2021</figcaption></figure>
 		</div>
 	</div>
 </section>

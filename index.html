@@ -124,8 +124,9 @@ a.inline-link:hover { color: var(--gold); }
 a.yt { display: inline-flex; align-items: center; gap: 6px; }
 .yt svg { flex: none; }
 
-.chips { list-style: none; padding: 0; margin: 0 0 32px; display: flex; flex-wrap: wrap; gap: 8px; }
-.chips li { background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 14px; color: var(--ink); }
+.chips { list-style: none; padding: 0; margin: 0 0 32px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(5, auto); grid-auto-flow: column; gap: 10px 18px; max-width: 760px; }
+.chips li { background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--gold); border-radius: 10px; padding: 9px 14px; font-size: 15px; font-weight: 500; color: var(--ink); }
+@media (max-width: 600px) { .chips { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; } }
 
 .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
 .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px 22px 18px; box-shadow: 0 1px 2px rgba(20, 38, 63, 0.04); }
